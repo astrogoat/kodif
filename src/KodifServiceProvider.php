@@ -1,19 +1,19 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Astrogoat\Kodif;
 
 use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\AppPackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use VendorName\Skeleton\Settings\SkeletonSettings;
+use Astrogoat\Kodif\Settings\KodifSettings;
 
-class SkeletonServiceProvider extends AppPackageServiceProvider
+class KodifServiceProvider extends AppPackageServiceProvider
 {
     public function registerApp(App $app): App
     {
         return $app
-            ->name('skeleton')
-            ->settings(SkeletonSettings::class)
+            ->name('kodif')
+            ->settings(KodifSettings::class)
             ->migrations([
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
@@ -24,6 +24,6 @@ class SkeletonServiceProvider extends AppPackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('skeleton')->hasConfigFile()->hasViews();
+        $package->name('kodif')->hasConfigFile()->hasViews();
     }
 }
