@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Kodif\Tests;
 
+use Astrogoat\Kodif\KodifServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Astrogoat\Kodif\KodifServiceProvider;
 
 class TestCase extends Orchestra
 {

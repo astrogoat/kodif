@@ -2,11 +2,11 @@
 
 namespace Astrogoat\Kodif;
 
+use Astrogoat\Kodif\Settings\KodifSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\AppPackageServiceProvider;
-use Spatie\LaravelPackageTools\Package;
-use Astrogoat\Kodif\Settings\KodifSettings;
 use Helix\Lego\Apps\Services\IncludeFrontendViews;
+use Spatie\LaravelPackageTools\Package;
 
 class KodifServiceProvider extends AppPackageServiceProvider
 {
