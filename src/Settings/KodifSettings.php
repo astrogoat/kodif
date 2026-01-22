@@ -7,18 +7,25 @@ use Illuminate\Validation\Rule;
 
 class KodifSettings extends AppSettings
 {
-    // public string $url;
+    public string $site_id;
 
     public function rules(): array
     {
         return [
-//            'url' => Rule::requiredIf($this->enabled === true), // Example, modify to fit your need.
+            'site_id' => Rule::requiredIf($this->enabled === true),
         ];
     }
 
     public function description(): string
     {
         return 'Interact with Kodif.';
+    }
+
+    public function labels(): array
+    {
+        return [
+            'site_id' => 'Site ID',
+        ];
     }
 
     public static function group(): string

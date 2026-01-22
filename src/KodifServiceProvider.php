@@ -6,6 +6,7 @@ use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\AppPackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Astrogoat\Kodif\Settings\KodifSettings;
+use Helix\Lego\Apps\Services\IncludeFrontendViews;
 
 class KodifServiceProvider extends AppPackageServiceProvider
 {
@@ -15,11 +16,11 @@ class KodifServiceProvider extends AppPackageServiceProvider
             ->name('kodif')
             ->settings(KodifSettings::class)
             ->migrations([
-                __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
             ])
-            ->backendRoutes(__DIR__.'/../routes/backend.php')
-            ->frontendRoutes(__DIR__.'/../routes/frontend.php');
+            ->includeFrontendViews(function (IncludeFrontendViews $views) {
+                return $views->addToEnd(['kodif::script']);
+            });
     }
 
     public function configurePackage(Package $package): void
