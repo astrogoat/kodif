@@ -2,6 +2,7 @@
 
 namespace Astrogoat\Kodif;
 
+use Helix\Lego\Apps\AppToken;
 use Astrogoat\Kodif\Settings\KodifSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\AppPackageServiceProvider;
@@ -20,7 +21,14 @@ class KodifServiceProvider extends AppPackageServiceProvider
             ])
             ->includeFrontendViews(function (IncludeFrontendViews $views) {
                 return $views->addToEnd(['kodif::script']);
-            });
+            })
+            ->tokens([
+                AppToken::name('Open Kodif chat widget')
+                    ->type(AppToken::TYPE_TEXT)
+                    ->key('open-chat-widget')
+                    ->value('window.openKodifChat();')
+                    ->description('Opens the Kodif chat widget.'),
+            ]);
     }
 
     public function configurePackage(Package $package): void
